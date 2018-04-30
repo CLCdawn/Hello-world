@@ -21,7 +21,7 @@ public class Stream {
 				{
 					result1 = result1 + a;
 				}
-				if (count2>1)
+				if (count1 > 1)
 				{
 					result1 = result1 + "," + a;
 				}
