@@ -18,13 +18,21 @@ public class MatrixCalculation {
 	 * @return result matrix = A + B
 	 */
 	public int[][] plus(int[][] A, int[][] B){
-		int [][] C = new int[A.length][A[0].length];
-		for (int i=0;i<A.length;i++){
-			for (int j=0; j<A[0].length; j++) {
+		if(A==null) {
+			return B;
+		}else if(B==null) {
+			return A;
+		}else {
+		int X = Math.max(A.length, B.length);
+		int Y = Math.max(A[0].length, B[0].length);
+		int [][] C = new int[X][Y];
+		for (int i=0;i<X;i++){
+			for (int j=0; j<Y; j++) {
 				C[i][j]=A[i][j]+B[i][j];			
 			}
 		}
 		return C;
+		}
 	}
 	
 	/**
@@ -32,17 +40,23 @@ public class MatrixCalculation {
 	 * @return result matrix = A * B
 	 */
 	public int[][] times(int[][] A, int[][] B){
+		if(A==null) {
+			return B;
+		}else if(B==null) {
+			return A;
+		}else {
 		int a = A.length;
 		int b = B[0].length;
 		int [][] C = new int[a][b];
 		for (int i=0; i<a; i++) {
 			for (int j=0; j<b; j++) {
-				for (int t=0; t<A[0].length; t++) {
+				for (int t=0; t<B.length; t++) {
 					C[i][j]=A[i][t]*B[t][j]+C[i][j];
 				}
 			}
 		}
-		return null;
+		return C;
+		}
 	}
 	
 	/**
@@ -99,8 +113,6 @@ public class MatrixCalculation {
 		return plus(m1,m2);
 	}
 		
-	
-
 	/**
 	 * 输入格式同上方法相同
 	 * 实现矩阵的乘法
